@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+<body ng-app="apirest">
+    <div ng-controller="LoginController">
+        <form ng-submit="login()" method="post">  
+            <input type="username" ng-model="login.username" ng-value="username"/>
+            <input type="password" ng-model="login.password" ng-value="password"/>
+            <button type="submit">Autenticarse</button>
+        </form>  
+    </div>
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/satellizer.min.js"></script>
+    <script type="text/javascript" src="js/js-angular/app-login-controllers.js"></script>
+    <script type="text/javascript" src="js/js-angular/app-login.js"></script>
+</body>
+</html>

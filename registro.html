@@ -1,0 +1,44 @@
+<div ng-include="/templates/header.html"></div>
+
+	<h2>Consulta</h2>
+	<div ng-controller="SeguridadTranquera">
+		<hr>
+
+		<label for="brevete">Brevete:</label>
+		<input ng-model="obj.brevete" ng-keyup="buscarChofer(obj)" type="text">{{obj.brevete}}
+		<input ng-model="brevete_id" type="text" ng-value="brevete_id">
+		<br>
+
+		<label for="tracto">Tracto:</label>
+		<input ng-model="obj.tracto" ng-keyup="buscarTracto(obj)" type="text">{{obj.tracto}}
+		<input ng-model="tracto_id" type="text" ng-value="tracto_id">
+		<br>
+
+		<label for="carreta">Carreta:</label>
+		<input ng-model="obj.carreta" ng-keyup="buscarCarreta(obj)" type="text">{{obj.carreta}}
+		<input ng-model="carreta_id" type="text" ng-value="carreta_id">
+		<hr>
+		<button ng-click="next()">Next</button>
+		<button ng-click="addSeguridadTranquera(obj)">Registrar</button>
+		
+		<br>
+		<div>
+			<ul>
+				<li ng-repeat="(key, value) in respuesta" ng-click="setId(name_input,value.pk)">
+					<div ng-if="name_input=='brevete'">
+						{{value.pk}} - {{value.fields.nro_licencia}} - {{value.fields.nombres}} {{value.fields.primer_apellido}} {{value.fields.segundo_apellido}}
+					</div>
+					<div ng-if="name_input=='tracto'">
+						{{value.pk}} - {{value.fields.placa}}
+					</div>
+					<div ng-if="name_input=='carreta'">
+						{{value.pk}} - {{value.fields.placa}}
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/js-angular/app.js"></script>
+	<script type="text/javascript" src="js/js-angular/app-controllers.js"></script>
+<div ng-include="/templates/footer.html"></div>
